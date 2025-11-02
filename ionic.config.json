@@ -1,0 +1,7 @@
+{
+  "name": "bmiCalculatorApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
