@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculadora de IMC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-container">
+    <ion-item>
+      <ion-label position="stacked">Peso (kg)</ion-label>
+      <ion-input
+        type="number"
+        [(ngModel)]="weight"
+        [clearInput]="true"
+        placeholder="Ingresa tu peso"
+        inputmode="numeric">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Altura (cm)</ion-label>
+      <ion-input
+        type="number"
+        [(ngModel)]="height"
+        [clearInput]="true"
+        placeholder="Ingresa tu altura"
+        inputmode="numeric">
+      </ion-input>
+    </ion-item>
+
+    <div class="button-container">
+      <ion-button expand="block" (click)="calculateBMI()">
+        CALCULAR IMC
+      </ion-button>
+    </div>
+
+    <ion-card class="info-card">
+      <ion-card-header>
+        <ion-card-title>¿Qué es el IMC?</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso y altura 
+          para determinar si estás en un rango saludable.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
