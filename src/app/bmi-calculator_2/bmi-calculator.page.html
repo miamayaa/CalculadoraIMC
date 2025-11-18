@@ -4,35 +4,47 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <div class="main-container">
     <ion-item>
       <ion-label position="stacked">Peso (kg)</ion-label>
-      <ion-input
+      <input
         type="number"
         [(ngModel)]="weight"
-        [clearInput]="true"
         placeholder="Ingresa tu peso"
-        inputmode="numeric">
-      </ion-input>
+        inputmode="numeric"
+        class="native-input" />
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Altura (cm)</ion-label>
-      <ion-input
+      <input
         type="number"
         [(ngModel)]="height"
-        [clearInput]="true"
         placeholder="Ingresa tu altura"
-        inputmode="numeric">
-      </ion-input>
+        inputmode="numeric"
+        class="native-input" />
     </ion-item>
 
     <div class="button-container">
-      <ion-button expand="block" (click)="calculateBMI()">
+      <ion-button
+        expand="block"
+        color="primary"
+        class="calculate-button"
+        (click)="calculateBMI()">
         CALCULAR IMC
       </ion-button>
     </div>
+
+    <ion-card *ngIf="triedCalculate" class="result-card">
+      <ion-card-header>
+        <ion-card-title>Tu resultado</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <h2 class="result-value">{{ bmiResult }}</h2>
+        <p class="result-category">{{ bmiCategory }}</p>
+      </ion-card-content>
+    </ion-card>
 
     <ion-card class="info-card">
       <ion-card-header>

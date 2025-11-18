@@ -1,7 +1,10 @@
 .main-container {
-  padding: 16px;
-  max-width: 600px;
+  padding: 16px 12px 32px;
+  max-width: 480px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 ion-list {
@@ -13,15 +16,17 @@ ion-item {
   --padding-start: 0;
   --inner-padding-end: 0;
   --background: transparent;
+  --color: var(--ion-text-color, #ffffff);
+  --min-height: 40px;
   margin-bottom: 16px;
 }
 
 .button-container {
-  margin: 24px 0;
+  margin: 24px 0 8px;
 }
 
 .info-card {
-  margin: 24px 0;
+  margin: 16px 0 0;
   
   ion-card-header {
     padding-bottom: 8px;
@@ -67,10 +72,13 @@ ion-item {
   margin-top: 24px;
 
   .calculate-button {
-    --border-radius: 12px;
-    --box-shadow: 0 4px 12px rgba(var(--ion-color-primary-rgb), 0.2);
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    --border-radius: 999px;
+    --background: var(--ion-color-primary);
+    --color: #ffffff;
+    --box-shadow: 0 6px 16px rgba(var(--ion-color-primary-rgb), 0.35);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
     height: 52px;
     margin: 0;
 
@@ -80,8 +88,29 @@ ion-item {
   }
 }
 
+.result-card {
+  margin-top: 12px;
+
+  ion-card-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .result-value {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0 0 2px;
+  }
+
+  .result-category {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ion-color-primary);
+    font-weight: 600;
+  }
+}
+
 .info-card {
-  margin-top: 16px;
+  margin-top: 12px;
 
   ion-card {
     margin: 0;
@@ -104,4 +133,29 @@ ion-item {
       line-height: 1.6;
     }
   }
+}
+
+ion-input {
+  --background: transparent;
+  --color: inherit;
+  --placeholder-color: var(--ion-color-medium, #cccccc);
+  --padding-start: 12px;
+  --padding-end: 12px;
+  min-height: 40px;
+}
+
+.native-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--ion-color-medium, #666666);
+  background-color: #222222;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.native-input::placeholder {
+  color: var(--ion-color-medium, #aaaaaa);
 }
