@@ -1,70 +1,54 @@
-.calculator-content {
-  --background: #ffffff !important;
-  --color: #000000 !important;
-  background-color: #ffffff !important;
+.onboarding-content {
+  --background: #2a7a7a !important;
+  background-color: #2a7a7a !important;
 }
 
-ion-content.calculator-content {
-  --background: #ffffff !important;
+ion-content.onboarding-content {
+  --background: #2a7a7a !important;
 }
 
-.calculator-container {
+.onboarding-container {
   min-height: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 60px 24px 40px;
-  background-color: #ffffff;
+  color: white;
+  background-color: #2a7a7a;
 }
 
 .title {
   font-size: 28px;
   font-weight: 700;
-  color: #000000;
-  margin: 0 0 40px;
+  color: white;
+  margin: 0 0 auto;
 }
 
-.form-container {
+.info-section {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.info-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
 }
 
-.input-label {
+.info-text {
   font-size: 16px;
-  font-weight: 600;
-  color: #000000;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
   margin: 0;
 }
 
-.form-input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 12px 16px;
-  border: none;
-  border-bottom: 2px solid #e0e0e0;
-  background-color: transparent;
-  color: #000000;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s ease;
-
-  &:focus {
-    border-bottom-color: #4caf50;
-  }
-
-  &::placeholder {
-    color: #999999;
-  }
-}
-
-.calculate-button {
+.continue-button {
   --background: #4caf50 !important;
   --background-hover: #45a049 !important;
   --background-activated: #3d8b40 !important;
@@ -77,13 +61,12 @@ ion-content.calculator-content {
   font-weight: 600;
   font-size: 16px;
   height: 52px;
-  margin-top: 24px;
-  text-transform: none;
+  margin: 0;
   box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
   transition: all 0.3s ease;
 }
 
-.calculate-button::part(native) {
+.continue-button::part(native) {
   background: #4caf50 !important;
   color: #ffffff !important;
   border-radius: 8px !important;
@@ -94,7 +77,7 @@ ion-content.calculator-content {
   line-height: 52px;
 }
 
-.calculate-button span {
+.continue-button span {
   font-weight: 600;
   font-size: 16px;
   color: #ffffff !important;

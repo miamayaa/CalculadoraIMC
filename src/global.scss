@@ -34,4 +34,113 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+/* @import '@ionic/angular/css/palettes/dark.system.css'; */
+
+/* Force light mode colors */
+:root {
+  --ion-background-color: #ffffff;
+  --ion-text-color: #000000;
+  --ion-color-step-50: #f2f2f2;
+  --ion-color-step-100: #e6e6e6;
+  --ion-color-step-150: #d9d9d9;
+  --ion-color-step-200: #cccccc;
+  --ion-color-step-250: #bfbfbf;
+  --ion-color-step-300: #b3b3b3;
+  --ion-color-step-350: #a6a6a6;
+  --ion-color-step-400: #999999;
+  --ion-color-step-450: #8c8c8c;
+  --ion-color-step-500: #808080;
+  --ion-color-step-550: #737373;
+  --ion-color-step-600: #666666;
+  --ion-color-step-650: #595959;
+  --ion-color-step-700: #4d4d4d;
+  --ion-color-step-750: #404040;
+  --ion-color-step-800: #333333;
+  --ion-color-step-850: #262626;
+  --ion-color-step-900: #191919;
+  --ion-color-step-950: #0d0d0d;
+}
+
+/* Ensure light mode even if system is dark */
+body {
+  color-scheme: light;
+}
+
+ion-app {
+  background-color: #ffffff;
+}
+
+/* Force proper styling for ion-button */
+ion-button {
+  --border-radius: 8px;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+ion-button::part(native) {
+  border-radius: 8px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0 16px !important;
+  height: 100% !important;
+}
+
+ion-button::part(native) .button-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure button text is always centered */
+ion-button .button-native {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Remove default button padding that might affect centering */
+ion-button {
+  margin: 0;
+}
+
+ion-button .button-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Ensure full height for ion-content */
+ion-content {
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
+}
+
+/* Modal styles */
+.result-modal {
+  --width: 100%;
+  --height: 100%;
+  --border-radius: 0;
+}
+
+ion-modal {
+  --width: 100%;
+  --height: 100%;
+  --border-radius: 0;
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+ion-modal::part(content) {
+  border-radius: 0;
+}

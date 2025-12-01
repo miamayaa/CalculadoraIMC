@@ -1,0 +1,28 @@
+<ion-content class="result-content" [ngClass]="getBackgroundClass()" [fullscreen]="true">
+  <div class="result-container">
+    <h1 class="result-title">Calculadora de IMC</h1>
+    
+    <div class="result-section">
+      <p class="result-label">Su IMC</p>
+      <h2 class="result-value">{{ bmiResult }}</h2>
+      
+      <div class="category-badge">
+        <p class="category-text">{{ bmiCategory.toUpperCase() }}</p>
+      </div>
+      
+      <div class="info-section">
+        <p class="info-title">{{ getInfoTitle() }}</p>
+        <p class="info-description">{{ getInfoDescription() }}</p>
+        <p class="info-warning">{{ getInfoWarning() }}</p>
+      </div>
+    </div>
+
+    <ion-button
+      expand="block"
+      class="close-button"
+      style="text-align: center;"
+      (click)="goBack()">
+      <span style="width: 100%; text-align: center; display: block; color: #333333;">Cerrar</span>
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,61 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Calculadora de IMC</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="calculator-content">
+  <div class="calculator-container">
+    <h1 class="title">Calculadora de IMC</h1>
+    
+    <div class="form-container">
+      <div class="input-group">
+        <label class="input-label">Peso (en kg)</label>
+        <input
+          type="number"
+          [(ngModel)]="weight"
+          placeholder="80"
+          inputmode="numeric"
+          class="form-input" />
+      </div>
 
-<ion-content class="ion-padding">
-  <div class="main-container">
-    <ion-item>
-      <ion-label position="stacked">Peso (kg)</ion-label>
-      <input
-        type="number"
-        [(ngModel)]="weight"
-        placeholder="Ingresa tu peso"
-        inputmode="numeric"
-        class="native-input" />
-    </ion-item>
+      <div class="input-group">
+        <label class="input-label">Altura (en cm)</label>
+        <input
+          type="number"
+          [(ngModel)]="height"
+          placeholder="180"
+          inputmode="numeric"
+          class="form-input" />
+      </div>
 
-    <ion-item>
-      <ion-label position="stacked">Altura (cm)</ion-label>
-      <input
-        type="number"
-        [(ngModel)]="height"
-        placeholder="Ingresa tu altura"
-        inputmode="numeric"
-        class="native-input" />
-    </ion-item>
-
-    <div class="button-container">
       <ion-button
         expand="block"
-        color="primary"
         class="calculate-button"
+        style="text-align: center;"
         (click)="calculateBMI()">
-        CALCULAR IMC
+        <span style="width: 100%; text-align: center; display: block;">Calcular IMC</span>
       </ion-button>
     </div>
-
-    <ion-card *ngIf="triedCalculate" class="result-card">
-      <ion-card-header>
-        <ion-card-title>Tu resultado</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <h2 class="result-value">{{ bmiResult }}</h2>
-        <p class="result-category">{{ bmiCategory }}</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="info-card">
-      <ion-card-header>
-        <ion-card-title>¿Qué es el IMC?</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>
-          El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso y altura 
-          para determinar si estás en un rango saludable.
-        </p>
-      </ion-card-content>
-    </ion-card>
   </div>
 </ion-content>

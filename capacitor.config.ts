@@ -4,7 +4,6 @@ const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
   appName: 'Calculadora IMC',
   webDir: 'www',
-  bundledWebRuntime: false,
   server: {
     androidScheme: 'http',
     cleartext: true
@@ -14,12 +13,12 @@ const config: CapacitorConfig = {
   },
   plugins: {
     StatusBar: {
-      backgroundColor: '#3880ff',
+      backgroundColor: '#2a7a7a',
       style: 'light'
     },
     Keyboard: {
       resize: 'body',
-      style: 'dark',
+      style: 'light',
       resizeOnFullScreen: true
     }
   }

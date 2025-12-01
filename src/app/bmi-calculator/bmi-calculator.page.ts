@@ -1,9 +1,9 @@
-﻿import { Component, NgZone } from '@angular/core';
-import { IonicModule, ModalController, Platform } from '@ionic/angular';
+import { Component, NgZone } from '@angular/core';
+import { IonicModule, Platform } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { App } from '@capacitor/app';
-import { ResultModalComponent } from './result-modal.component';
 
 @Component({
   selector: 'app-bmi-calculator',
@@ -20,7 +20,7 @@ export class BmiCalculatorPage {
   triedCalculate: boolean = false;
 
   constructor(
-    private modalCtrl: ModalController,
+    private router: Router,
     private platform: Platform,
     private ngZone: NgZone
   ) {
@@ -43,43 +43,30 @@ export class BmiCalculatorPage {
     });
   }
 
-  async calculateBMI() {
-    try {
-      this.ngZone.run(async () => {
-        this.triedCalculate = true;
-        console.log('calculateBMI called', { weight: this.weight, height: this.height });
-        
-        if (!this.weight || !this.height || this.weight <= 0 || this.height <= 0) {
-          const modal = await this.modalCtrl.create({
-            component: ResultModalComponent,
-            componentProps: {
-              bmiResult: 0,
-              bmiCategory: 'Por favor, ingrese valores válidos.'
-            },
-            breakpoints: [0, 1],
-            initialBreakpoint: 1
-          });
-          return await modal.present();
-        }
-
-        const heightM = this.height / 100;
-        this.bmiResult = +(this.weight / (heightM * heightM)).toFixed(2);
-        this.setCategory();
-        
-        const modal = await this.modalCtrl.create({
-          component: ResultModalComponent,
-          componentProps: {
-            bmiResult: this.bmiResult,
-            bmiCategory: this.bmiCategory
-          },
-          breakpoints: [0, 1],
-          initialBreakpoint: 1
-        });
-        await modal.present();
-      });
-    } catch (error) {
-      console.error('Error en calculateBMI:', error);
+  calculateBMI(): void {
+    console.log('calculateBMI iniciado', { weight: this.weight, height: this.height });
+    
+    this.triedCalculate = true;
+    
+    if (!this.weight || !this.height || this.weight <= 0 || this.height <= 0) {
+      console.log('Valores inválidos');
+      alert('Por favor, ingrese valores válidos.');
+      return;
     }
+
+    const heightM = this.height / 100;
+    this.bmiResult = +(this.weight / (heightM * heightM)).toFixed(2);
+    this.setCategory();
+    
+    console.log('Resultado calculado:', { bmiResult: this.bmiResult, bmiCategory: this.bmiCategory });
+    console.log('Navegando a página de resultados...');
+    
+    this.router.navigate(['/result'], {
+      state: {
+        bmiResult: this.bmiResult,
+        bmiCategory: this.bmiCategory
+      }
+    });
   }
 
   setCategory() {
